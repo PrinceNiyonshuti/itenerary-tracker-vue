@@ -32,7 +32,7 @@ export default {
         id: 2,
         text: "Doing exercise and resting",
         day: "March 23rd at 1:30pm",
-        reminder: true,
+        reminder: false,
       },
       {
         id: 3,
@@ -44,7 +44,7 @@ export default {
         id: 4,
         text: "Food Shopping",
         day: "March 23rd at 12:30pm",
-        reminder: true,
+        reminder: false,
       },
     ];
   },
