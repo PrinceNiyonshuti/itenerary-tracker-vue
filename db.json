@@ -1,28 +1,28 @@
 {
-	"tasks": [
-		{
-			"id": 1,
-			"text": "Learning Laravel",
-			"day": "March 23rd at 2:30pm",
-			"reminder": true
-		},
-		{
-			"id": 2,
-			"text": "Doing exercise and resting",
-			"day": "March 23rd at 1:30pm",
-			"reminder": false
-		},
-		{
-			"id": 3,
-			"text": "Learning Vue",
-			"day": "March 23rd at 5:30pm",
-			"reminder": true
-		},
-		{
-			"id": 4,
-			"text": "Food Shopping",
-			"day": "March 23rd at 12:30pm",
-			"reminder": false
-		}
-	]
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Learning Laravel",
+      "day": "March 23rd at 2:30pm",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "Doing exercise and resting",
+      "day": "March 23rd at 1:30pm",
+      "reminder": false
+    },
+    {
+      "id": 3,
+      "text": "Learning Vue",
+      "day": "March 23rd at 5:30pm",
+      "reminder": true
+    },
+    {
+      "id": 5,
+      "text": "Watching Movie",
+      "day": "Sundat at 8:30 PM",
+      "reminder": false
+    }
+  ]
 }

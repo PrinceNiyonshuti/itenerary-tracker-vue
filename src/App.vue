@@ -2,20 +2,19 @@
 
 <template>
 	<div class="container">
-		<Header 
-      title="Task Tracker" 
-      @toggle-add-task="toggleAddTask"
-      :showAddTask="showAddTask"
-    />
-    <div v-show="showAddTask">
-      <AddTask @add-task="addTask"/>
-    </div>
-		
+		<Header
+			title="Task Tracker"
+			@toggle-add-task="toggleAddTask"
+			:showAddTask="showAddTask"
+		/>
+		<div v-show="showAddTask">
+			<AddTask @add-task="addTask" />
+		</div>
+
 		<Tasks
 			:tasks="tasks"
 			@delete-task="deleteTask"
 			@toggle-reminder="toggleReminder"
-			
 		/>
 	</div>
 </template>
@@ -33,19 +32,34 @@
 		data() {
 			return {
 				tasks: [],
-        showAddTask:false,
+				showAddTask: false,
 			};
 		},
 		methods: {
-      toggleAddTask(){
-        this.showAddTask = !this.showAddTask
-      },
-			addTask(task) {
-				this.tasks = [...this.tasks, task];
+			toggleAddTask() {
+				this.showAddTask = !this.showAddTask;
 			},
-			deleteTask(id) {
+			async addTask(task) {
+				const res = await fetch("api/tasks", {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json",
+					},
+					body: JSON.stringify(task),
+				});
+
+				const data = await res.json();
+				this.tasks = [...this.tasks, data];
+			},
+			async deleteTask(id) {
 				if (confirm("Are you sure ?")) {
-					this.tasks = this.tasks.filter((task) => task.id !== id);
+					const res = await fetch(`api/tasks/${id}`, {
+						method: "DELETE",
+					});
+
+					res.status === 200
+						? (this.tasks = this.tasks.filter((task) => task.id !== id))
+						: alert("Error while deleting tasks");
 				}
 			},
 			toggleReminder(id) {
@@ -54,34 +68,20 @@
 				);
 				console.log(id);
 			},
+
+			async fetchTasks() {
+				const res = await fetch("api/tasks");
+				const data = await res.json();
+				return data;
+			},
+			// async fetchTask() {
+			//   const res = await fetch(`api/tasks/${id}`);
+			//   const data = await res.json();
+			//   return data;
+			// },
 		},
-		created() {
-			this.tasks = [
-				{
-					id: 1,
-					text: "Learning Laravel",
-					day: "March 23rd at 2:30pm",
-					reminder: true,
-				},
-				{
-					id: 2,
-					text: "Doing exercise and resting",
-					day: "March 23rd at 1:30pm",
-					reminder: false,
-				},
-				{
-					id: 3,
-					text: "Learning Vue",
-					day: "March 23rd at 5:30pm",
-					reminder: true,
-				},
-				{
-					id: 4,
-					text: "Food Shopping",
-					day: "March 23rd at 12:30pm",
-					reminder: false,
-				},
-			];
+		async created() {
+			this.tasks = await this.fetchTasks();
 		},
 	};
 </script>
