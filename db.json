@@ -4,7 +4,7 @@
       "id": 1,
       "text": "Learning Laravel",
       "day": "March 23rd at 2:30pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,
@@ -22,7 +22,13 @@
       "id": 5,
       "text": "Watching Movie",
       "day": "Sundat at 8:30 PM",
-      "reminder": false
+      "reminder": true
+    },
+    {
+      "text": "Learn Laravel and Vue using API",
+      "day": "Sunday at 3:00 PM",
+      "reminder": false,
+      "id": 6
     }
   ]
 }
