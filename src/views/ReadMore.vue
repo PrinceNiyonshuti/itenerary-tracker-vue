@@ -20,7 +20,7 @@
 		},
 		methods: {
 			async fetchTask(id) {
-				const res = await fetch(`/api/tasks/${id}`);
+				const res = await fetch(`/api/tasks/read/${id}`);
 				const data = await res.json();
 				return data;
 			},

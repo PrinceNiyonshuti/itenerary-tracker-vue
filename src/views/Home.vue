@@ -6,7 +6,7 @@
 	</div>
 
 	<Tasks
-		:tasks="tasks"
+		:tasks="tasks.task"
 		@delete-task="deleteTask"
 		@toggle-reminder="toggleReminder"
 	/>
@@ -25,12 +25,14 @@
 		},
 		data() {
 			return {
-				tasks: [],
+				tasks: {
+					task: [],
+				},
 			};
 		},
 		methods: {
 			async addTask(task) {
-				const res = await fetch("api/tasks", {
+				const res = await fetch("http://localhost:8000/api/tasks/store", {
 					method: "POST",
 					headers: {
 						"Content-type": "application/json",
@@ -39,7 +41,7 @@
 				});
 
 				const data = await res.json();
-				this.tasks = [...this.tasks, data];
+				this.tasks.task = [...this.tasks.task, data];
 			},
 			async deleteTask(id) {
 				if (confirm("Are you sure ?")) {
@@ -48,13 +50,18 @@
 					});
 
 					res.status === 200
-						? (this.tasks = this.tasks.filter((task) => task.id !== id))
+						? (this.tasks.task = this.tasks.task.filter((task) => task.id !== id))
 						: alert("Error while deleting tasks");
 				}
 			},
 			async toggleReminder(id) {
-				const tastToToggle = await this.fetchTask(id);
-				const updTask = { ...tastToToggle, reminder: !tastToToggle.reminder };
+				const taskToToggle = await this.fetchTask(id);
+				const updTask = {
+					task: {
+						...taskToToggle,
+						reminder: !taskToToggle.reminder,
+					},
+				};
 
 				const res = await fetch(`api/tasks/${id}`, {
 					method: "PUT",
@@ -66,7 +73,7 @@
 
 				const data = await res.json();
 
-				this.tasks = this.tasks.map((task) =>
+				this.tasks.task = this.tasks.task.map((task) =>
 					task.id === id ? { ...task, reminder: data.reminder } : task
 				);
 			},
@@ -77,13 +84,13 @@
 				return data;
 			},
 			async fetchTask(id) {
-				const res = await fetch(`api/tasks/${id}`);
+				const res = await fetch(`api/tasks/read/${id}`);
 				const data = await res.json();
 				return data;
 			},
 		},
 		async created() {
-			this.tasks = await this.fetchTasks();
+			this.tasks.task = await this.fetchTasks();
 		},
 	};
 </script>

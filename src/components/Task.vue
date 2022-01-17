@@ -9,7 +9,7 @@
 			<i @click="$emit('delete-task',id)" class="fas fa-times"></i>
 		</h3>
 		<p>{{ task.day }}</p>
-		<router-link :to="`/update/${task.id}`">Edit</router-link>
+		<router-link :to="`/update/${task.id}`"><i class="edit fas fa-edit"></i></router-link>
 	</div>
 </template>
 <script>
@@ -25,6 +25,9 @@
 <style scoped>
 	.fas {
 		color: red;
+	}
+	.edit {
+		color: blue;
 	}
 	.task {
 		background: #f4f4f4;

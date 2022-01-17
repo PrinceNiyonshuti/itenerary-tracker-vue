@@ -8,10 +8,10 @@
 npm install
 ```
 
-## Run the JSON-Server backend (http://localhost:5000)
+## Backend is Laravel API 
 
 ```
-npm run backend
+https://github.com/PrinceNiyonshuti/taskTrackerAPI.git
 ```
 
 ## Run the Vue dev server (http://localhost:8080)
@@ -36,3 +36,4 @@ npm run lint
 
 - Json Server
 - Vue-router
+- Axios

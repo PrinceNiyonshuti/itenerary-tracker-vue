@@ -9,6 +9,7 @@
     "backend": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "json-server": "^0.17.0",
     "vue": "^3.0.0",
