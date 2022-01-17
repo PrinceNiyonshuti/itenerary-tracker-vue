@@ -5,7 +5,7 @@
 		<div class="form-control">
 			<label>Task</label>
 			<input
-				type="text"
+				type="hidden"
 				v-model="taskId"
 				name="taskId"
 				placeholder="Add Task"
@@ -63,7 +63,7 @@
 					reminder: this.reminder,
 				};
 
-				await fetch(`http://localhost:5000/tasks/${id}`, {
+				await fetch(`/api/tasks/${id}`, {
 					method: "PUT",
 					headers: {
 						"Content-type": "application/json",

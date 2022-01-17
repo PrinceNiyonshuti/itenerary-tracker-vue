@@ -44,7 +44,7 @@
 				const newTask = {
 					text: this.text,
 					day: this.day,
-					reminder: false,
+					reminder: this.reminder,
 				};
 
 				this.$emit("add-task", newTask);
