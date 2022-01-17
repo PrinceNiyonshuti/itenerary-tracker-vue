@@ -27,7 +27,7 @@
     {
       "text": "Learn Laravel and Vue using API",
       "day": "Sunday at 3:00 PM",
-      "reminder": false,
+      "reminder": true,
       "id": 6
     }
   ]
