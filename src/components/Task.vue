@@ -1,17 +1,15 @@
 <!-- @format -->
 
 <template>
-	<div
-		:class="[task.reminder ? 'reminder' : '', 'task']"
-		@dblclick="$emit('toggle-reminder', id)"
-	>
+	<div :class="[task.reminder? 'reminder':'', 'task']" @dblclick="$emit('toggle-reminder',id)">
 		<h3>
 			<router-link :to="`/read/${task.id}`">
 				{{ task.text }}
 			</router-link>
-			<i @click="$emit('delete-task', id)" class="fas fa-times"></i>
+			<i @click="$emit('delete-task',id)" class="fas fa-times"></i>
 		</h3>
 		<p>{{ task.day }}</p>
+		<router-link :to="`/update/${task.id}`">Edit</router-link>
 	</div>
 </template>
 <script>
@@ -20,7 +18,8 @@
 		props: {
 			task: Object,
 		},
-		methods: {},
+        methods:{
+        }
 	};
 </script>
 <style scoped>

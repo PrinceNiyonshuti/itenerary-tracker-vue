@@ -69,8 +69,6 @@
 				this.tasks = this.tasks.map((task) =>
 					task.id === id ? { ...task, reminder: data.reminder } : task
 				);
-
-				console.log(id);
 			},
 
 			async fetchTasks() {
