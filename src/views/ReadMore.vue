@@ -10,7 +10,7 @@
 <script>
 	export default {
 		name: "ReadMore",
-        props: {
+		props: {
 			showAddTask: Boolean,
 		},
 		data() {
@@ -20,7 +20,7 @@
 		},
 		methods: {
 			async fetchTask(id) {
-				const res = await fetch(`/api/tasks/read/${id}`);
+				const res = await fetch(`/api/tasks/${id}`);
 				const data = await res.json();
 				return data;
 			},

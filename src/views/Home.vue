@@ -50,7 +50,9 @@
 					});
 
 					res.status === 200
-						? (this.tasks.task = this.tasks.task.filter((task) => task.id !== id))
+						? (this.tasks.task = this.tasks.task.filter(
+							(task) => task.id !== id
+						))
 						: alert("Error while deleting tasks");
 				}
 			},
@@ -84,7 +86,7 @@
 				return data;
 			},
 			async fetchTask(id) {
-				const res = await fetch(`api/tasks/read/${id}`);
+				const res = await fetch(`api/tasks/${id}`);
 				const data = await res.json();
 				return data;
 			},

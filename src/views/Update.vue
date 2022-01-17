@@ -47,7 +47,7 @@
 		},
 		methods: {
 			async fetchTask(id) {
-				const res = await fetch(`http://127.0.0.1:8000/api/tasks/read/${id}`);
+				const res = await fetch(`http://127.0.0.1:8000/api/tasks/${id}`);
 				const data = await res.json();
 				return data;
 			},
