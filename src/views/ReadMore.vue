@@ -1,24 +1,30 @@
 <!-- @format -->
 
 <template>
-	<div :class="[task.reminder? 'reminder':'', 'task']" @dblclick="$emit('toggle-reminder',id)">
-		<h3>
-			<router-link :to="`/read/${task.id}`">
-				{{ task.text }}
-			</router-link>
-			<i @click="$emit('delete-task',id)" class="fas fa-times"></i>
-		</h3>
+	<div class="task">
+		<h3>{{ task.text }}</h3>
 		<p>{{ task.day }}</p>
 	</div>
 </template>
 <script>
 	export default {
-		name: "Task",
-		props: {
-			task: Object,
+		name: "ReadMore",
+        data() {
+			return {
+				task: [],
+			};
 		},
-        methods:{
-        }
+		methods: {
+			async fetchTask(id) {
+				const res = await fetch(`http://localhost:5000/tasks/${id}`);
+				const data = await res.json();                
+				return data;
+				
+			},
+		},
+        async created() {
+			this.task = await this.fetchTask(this.$route.params.id);
+		},
 	};
 </script>
 <style scoped>
