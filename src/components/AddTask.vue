@@ -2,15 +2,7 @@
 
 <template>
 	<form @submit="onSubmit" class="add-form">
-		<div class="form-control">
-			<label>Task</label>
-			<input
-				type="text"
-				v-model="task.text"
-				name="text"
-				placeholder="Add Task"
-			/>
-		</div>
+		<Input label="Task Name" type="text" v-model="task.text" name="text" placeholder="Add Task Name ...." />
 		<div class="form-control">
 			<label>Day & Time</label>
 			<input
@@ -24,15 +16,17 @@
 			<label>Set Reminder</label>
 			<input type="checkbox" v-model="task.reminder" name="reminder" />
 		</div>
-		<Button type="submit" text="Save Task" class="btn btn-block"/>
+		<Button type="submit" text="Save Task" class="btn btn-block" />
 	</form>
 </template>
 <script>
-	import Button from './Button.vue'
+	import Button from "./Button.vue";
+	import Input from "./Input.vue";
 	export default {
 		name: "AddTask",
 		components: {
 			Button,
+			Input,
 		},
 		data() {
 			return {
