@@ -24,13 +24,16 @@
 			<label>Set Reminder</label>
 			<input type="checkbox" v-model="task.reminder" name="reminder" />
 		</div>
-
-		<input type="submit" value="Save Task" class="btn btn-block" />
+		<Button type="submit" text="Save Task" class="btn btn-block"/>
 	</form>
 </template>
 <script>
+	import Button from './Button.vue'
 	export default {
 		name: "AddTask",
+		components: {
+			Button,
+		},
 		data() {
 			return {
 				task: {
