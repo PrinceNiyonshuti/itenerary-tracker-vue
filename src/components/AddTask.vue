@@ -2,16 +2,8 @@
 
 <template>
 	<form @submit="onSubmit" class="add-form">
-		<Input label="Task Name" type="text" v-model="task.text" name="text" placeholder="Add Task Name ...." />
-		<div class="form-control">
-			<label>Day & Time</label>
-			<input
-				type="text"
-				v-model="task.day"
-				name="day"
-				placeholder="Add Day & Time"
-			/>
-		</div>
+		<Input label="Task Name" type="text" v-model="task.text" name="text" placeholder="Add Task Name " />
+		<Input label="Day & Time" type="text" v-model="task.day" name="text" placeholder="Add Day & Time" />
 		<div class="form-control form-control-check">
 			<label>Set Reminder</label>
 			<input type="checkbox" v-model="task.reminder" name="reminder" />
