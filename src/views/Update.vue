@@ -73,4 +73,20 @@
 		},
 	};
 </script>
-
+<style scoped>
+	.add-form {
+		margin-bottom: 40px;
+	}
+	.form-control-check {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.form-control-check label {
+		flex: 1;
+	}
+	.form-control-check input {
+		flex: 2;
+		height: 20px;
+	}
+</style>
