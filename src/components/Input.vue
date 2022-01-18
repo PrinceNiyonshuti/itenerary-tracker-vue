@@ -19,7 +19,7 @@
 			type: String,
 			name: String,
 			placeholder: String,
-			modelValue: String,
+			modelValue: [Number, String],
 		},
 		computed: {
 			inputValue: {
