@@ -1,6 +1,7 @@
 <!-- @format -->
 
 # itenerary-tracker
+a simple itenary tracker using vue js and consuming laravel api
 
 ## Project setup
 
