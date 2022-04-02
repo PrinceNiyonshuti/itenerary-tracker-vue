@@ -1,7 +1,7 @@
 <!-- @format -->
 
 # itenerary-tracker
-a simple itenary tracker using vue js and consuming laravel api
+a simple itenary tracker using vue js and consuming laravel api as its supportive backend
 
 ## Project setup
 
