@@ -33,12 +33,13 @@ npm run build
 npm run lint
 ```
 
-## Feedback and issues
-
-Any issue and feedback from the app don't hesitate to make an issue
-
 ### Resources used
 
 - Json Server
 - Vue-router
 - Axios
+
+
+## Feedback and issues
+
+Any issue and feedback from the app don't hesitate to make an issue
